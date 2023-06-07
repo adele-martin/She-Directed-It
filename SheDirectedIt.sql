@@ -95,3 +95,19 @@ where d.director_gender in ('male', 'female')
 group by d.director_gender
 order by 1 desc
 limit 10;
+
+
+#6. Top Ten Female Directors?
+
+select avg(popularity) as "AVG POPULARITY"
+from films f 
+right join directors d 
+on f.director_id = d.director_id
+left join film_genre fg 
+on fg.film_id = f.film_id
+inner join genres g
+on g.genre_id = fg.genre_id
+where d.director_gender in ('male', 'female')
+group by d.director_gender
+order by 1 desc
+limit 10;
